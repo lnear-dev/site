@@ -1,0 +1,419 @@
+@import "./app.css";
+/* Hide undefined elements */
+:not(:defined) {
+    visibility: hidden;
+}
+main > section {
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    width: 90%;
+    padding: 1%;
+    margin: 1% 0;
+    background: transparent;
+    border: none;
+    > span {
+        justify-content: space-between;
+        align-items: start;
+        width: 100%;
+        margin: 1% 0;
+        padding: 1% 0;
+        > span {
+            flex-flow: column wrap;
+            align-items: start;
+            width: 50%;
+            > div {
+                flex-flow: column wrap;
+                margin: 2% 0;
+                color: var(--text);
+            }
+        }
+    }
+}
+@media (max-width: 768px) {
+    section > span {
+        flex-flow: column wrap;
+        > span {
+            width: 100%;
+            > div {
+                width: 100%;
+                flex-flow: column wrap;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+main {
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 50vh;
+}
+
+/* containers */
+legend,
+fieldset {
+    border: 2px solid var(--blue);
+}
+legend {
+    background-color: var(--blue);
+    border: 2px solid var(--blue);
+}
+
+/* lists */
+/* text */
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    color: #000;
+
+    margin: 0;
+    padding: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+        color: #fff;
+
+        margin: 0;
+        padding: 0;
+    }
+}
+/* titles */
+h1 {
+    color: var(--blue);
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 600;
+    padding: 1% 0;
+}
+/* sub-titles */
+h2,
+h3 {
+    font-size: clamp(16px, 2vh, 24px);
+    font-weight: 400;
+}
+h2 {
+    color: #fff;
+}
+h4 {
+    font-size: clamp(12px, 2.5vw, 16px);
+    font-weight: 400;
+}
+h5 {
+    font-size: clamp(12px, 2.5vw, 16px);
+    font-weight: 400;
+}
+
+/* corps */
+p {
+    font-size: clamp(12px, 2.5vw, 16px);
+}
+
+/* images */
+img {
+    width: 100%;
+}
+
+/* icons */
+img[class="tiny"] {
+    width: 12.5%;
+}
+img[class="petit"] {
+    width: 25%;
+}
+img[class="med"] {
+    width: 50%;
+}
+img[class="gros"] {
+    width: 100%;
+}
+
+/* branding */
+/* icons */
+img[title="ic"] {
+    width: 75%;
+}
+
+span,
+input {
+    display: flex;
+}
+/* interactions */
+/* buttons */
+button {
+    font-family: "Victor Mono Bold", "Victor Mono", sans-serif;
+    transition: 0.2s ease-in-out;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: clamp(16px, 2.5vw, 18px);
+
+    width: 100%;
+    margin: 0.5% 0;
+}
+/* dialogs */
+/* forms */
+textarea,
+input {
+    font-family: "Victor Mono", sans-serif;
+    font-size: clamp(12px, 1vw, 16px);
+    border: 2px solid var(--sec);
+    background-color: transparent;
+
+    width: 100%;
+    padding: 1.75%;
+    margin: 1% 0;
+}
+textarea {
+    height: 10rem;
+    padding: 2%;
+    resize: none;
+}
+textarea:focus,
+input:focus {
+    outline: none;
+    border: 2px solid var(--blue);
+}
+
+.landing-card {
+    width: 100%;
+    & fieldset {
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: transparent;
+        border-radius: 16px;
+
+        width: 95%;
+
+        & legend {
+            background-color: var(--blue);
+            border: 2px solid var(--blue, black);
+            text-align: start;
+            width: 75%;
+        }
+    }
+}
+#packages-card {
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 1px;
+    fieldset {
+        &::-webkit-scrollbar {
+            width: 1em;
+        }
+
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--blue);
+            outline: 1px solid var(--blue);
+        }
+        --row-height: 100px;
+        --row-gap: 10px;
+        --rows-to-show: 2;
+        width: 100%;
+        max-height: calc(
+            var(--rows-to-show) * var(--row-height) + (var(--rows-to-show) - 1) *
+                var(--row-gap)
+        );
+        overflow-y: auto; /* Use 'auto' to allow scrolling only if necessary */
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: var(
+            --row-height
+        ); /* Ensures all rows have a consistent height */
+        grid-row-gap: var(--row-gap); /* Set the gap between rows */
+        text-align: center;
+        margin: 5% 0;
+        justify-items: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        border-radius: 0;
+
+        h2 {
+            color: var(--blue);
+        }
+
+        > a {
+            max-width: 85%;
+            text-decoration: none;
+            color: var(--blue);
+            display: flex;
+            justify-content: center; /* Center content inside flex container horizontally */
+            align-items: center; /* Center content inside flex container vertically */
+            padding: 1%;
+
+            & :visited {
+                color: var(--blue);
+            }
+            > div {
+                border-radius: 16px;
+                padding: 1%;
+                margin: 1%;
+                border: 1px solid var(--initial-border-color);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    width: 15%;
+                }
+
+                &:hover {
+                    box-shadow: 0 0 0 1px var(--blue);
+                    cursor: pointer;
+                    color: #fff;
+
+                    h2 {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        margin-top: 0; /* Remove default margin */
+    }
+    legend {
+        border: 5px solid var(--blue, black);
+        width: 20%;
+        color: white;
+        bottom: 100%;
+        margin-bottom: 0; /* Remove default margin */
+        padding: 0; /* Adjust padding if necessary */
+        position: sticky;
+    }
+}
+#stack-card {
+    border: 2px solid var(--sec, black);
+    margin: 5% 0;
+    --size: 75px;
+    /* grid-template-columns: repeat(auto-fill, minmax(var(--size), 1fr)); */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    legend {
+        background-color: transparent;
+        border: none;
+        width: 35%;
+        text-align: center;
+        grid-column: 1 / -1;
+    }
+
+    h2 {
+        color: var(--blue);
+        margin: 0;
+    }
+
+    > svg {
+        width: var(--size);
+        height: var(--size);
+        box-sizing: border-box;
+    }
+}
+#blog-card {
+    display: flex;
+    overflow-x: auto;
+    gap: 2%;
+
+    h2,
+    span {
+        color: var(--blue);
+    }
+
+    p {
+        text-align: start;
+    }
+
+    > a {
+        flex: 1; /* Each item takes an equal amount of space */
+        min-height: 100px; /* Set a minimum height, adjust as needed */
+        display: flex; /* Ensure inner content respects flexbox rules */
+        flex-direction: column; /* Stack content vertically */
+    }
+
+    &::-webkit-scrollbar {
+        width: 1em;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--blue);
+        outline: 1px solid var(--blue);
+    }
+}
+
+@media (max-width: 768px) {
+    .package-card {
+        & div {
+            width: inherit;
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            padding: 10%;
+        }
+        & svg {
+            width: 20%;
+            margin-left: auto;
+        }
+        & h2 {
+            display: inline;
+        }
+    }
+
+    #packages-card {
+        width: 100%;
+        max-width: 100vw;
+        & fieldset {
+            max-width: 100vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            & a {
+                width: 45%;
+            }
+            & package-card {
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    #stack-card {
+        width: 100%;
+        --size: 10vw;
+    }
+
+    #blog-card {
+        width: 100%;
+        & fieldset {
+            & ul li {
+                width: 100%;
+            }
+        }
+    }
+}

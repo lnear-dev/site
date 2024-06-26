@@ -1,0 +1,38 @@
+{
+  "name": "@lnear-internal/scripts",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/lnear-utils.js",
+  "typings": "./dist/lnear-utils.d.ts",
+  "module": "./dist/lnear-utils.js",
+  "exports": {
+    ".": {
+      "import": "./dist/lnear-utils.js",
+      "require": "./dist/lnear-utils.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "run": "ts-node --esm bootstrap.ts",
+    "docs": "node gen-docs.js",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@lnear/marco": "0.0.5",
+    "@types/node": "^20.12.12",
+    "markdown-it-anchor": "9.0.1",
+    "markdown-it-toc-done-right": "4.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vite-plugin-dts": "^3.9.1"
+  },
+  "dependencies": {
+    "@lnear/ds": "^1.0.0"
+  }
+}

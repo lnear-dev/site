@@ -1,0 +1,246 @@
+@import "./app.css";
+
+/* Hide undefined elements */
+:not(:defined) {
+    visibility: hidden;
+}
+
+/* Root styles */
+:scope {
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sidebar and Table of Contents styles */
+.sidebar,
+.table-of-contents {
+    position: fixed;
+    top: 0;
+    width: 15vw;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    background-color: inherit;
+}
+
+.sidebar {
+    left: 0;
+}
+
+.table-of-contents {
+    right: 0;
+    margin-right: 1rem;
+    background-color: transparent;
+}
+
+.table-of-contents li {
+    list-style: none;
+}
+
+.table-of-contents li li {
+    margin-left: 1rem;
+    font-size: 80%;
+}
+
+.table-of-contents a {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .sidebar,
+    .table-of-contents {
+        display: none;
+    }
+}
+
+/* Sidebar styles */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 1rem;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: "Victor Mono";
+}
+
+/* Light mode styles */
+@media (prefers-color-scheme: light) {
+    .sidebar a {
+        color: #242424;
+    }
+
+    .sidebar a:hover {
+        color: rgba(255, 255, 255, 0.87);
+    }
+
+    .table-of-contents a {
+        color: #242424;
+    }
+}
+
+/* Sidebar active link and hover styles */
+.sidebar a.active {
+    font-weight: bold;
+}
+
+.sidebar a.active::before {
+    content: ">>";
+    margin-right: 0.5rem;
+}
+
+.sidebar a:hover {
+    color: #f0f0f0;
+}
+
+/* Syntax highlighting styles */
+
+pre {
+    font-size: 1rem;
+    font-weight: 700;
+    font-style: bold;
+    padding: 2em;
+    border-radius: 8px;
+    overflow-x: auto;
+    line-height: 1.5;
+}
+
+pre code {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+pre,
+code {
+    color: #393a34;
+    background-color: #ffffff;
+}
+
+.hl-blur {
+    filter: blur(2px);
+}
+
+.hl-strong {
+    font-weight: bold;
+}
+
+.hl-em {
+    font-style: italic;
+}
+.hl-attribute {
+    font-style: italic;
+}
+.hl-keyword {
+    color: var(--blue);
+}
+
+.hl-property {
+    color: var(--green);
+}
+
+.hl-type {
+    color: var(--red);
+}
+.hl-variable {
+    color: var(--text);
+}
+
+.hl-generic {
+    color: #1e754f;
+}
+
+.hl-value {
+    color: #b56959;
+}
+
+.hl-literal {
+    color: #b56959;
+}
+
+.hl-number {
+    color: #2f798a;
+}
+
+.hl-comment {
+    color: #a0ada0;
+}
+
+.hl-addition {
+    display: inline-block;
+    min-width: 100%;
+    background-color: #00ff0022;
+}
+
+.hl-deletion {
+    display: inline-block;
+    min-width: 100%;
+    background-color: #ff000011;
+}
+
+.hl-gutter {
+    display: inline-block;
+    font-size: 0.9em;
+    color: #555;
+    padding: 0 1ch;
+    user-select: none;
+}
+
+.hl-gutter-addition {
+    background-color: #34a853;
+    color: #fff;
+}
+
+.hl-gutter-deletion {
+    background-color: #ea4334;
+    color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    pre,
+    code {
+        color: #dbd7cacc;
+        background-color: #000;
+    }
+
+    .hl-attribute {
+        font-style: italic;
+    }
+
+    .hl-type {
+        color: #ea4334;
+    }
+
+    .hl-generic {
+        color: #4d9375;
+    }
+
+    .hl-value {
+        color: #c98a7d;
+    }
+
+    .hl-literal {
+        color: #c98a7d;
+    }
+
+    .hl-number {
+        color: #4c9a91;
+    }
+
+    .hl-comment {
+        color: #758575dd;
+    }
+}

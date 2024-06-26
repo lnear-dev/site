@@ -1,0 +1,379 @@
+@import "./fonts/.css";
+@import "./reset.css";
+@view-transition {
+    navigation: auto;
+}
+:root {
+    --blue: #00b8ff;
+    --red: #ff499e;
+    --green: #79e118;
+    --text: #353535;
+    --sec: #d6d6d6;
+    --fill: #f9f9f9;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --green: #c5e6a6;
+        --sec: #d6d6d6db;
+        --fill: #1a1a1a;
+        --text: #f9f9f9;
+    }
+}
+
+:not(:defined) {
+    visibility: hidden;
+}
+
+* {
+    font-family: "Victor Mono", sans-serif;
+    font-synthesis: position;
+    text-size-adjust: none;
+    text-rendering: auto;
+
+    color: var(--text);
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: var(--fill);
+
+    &::-webkit-scrollbar {
+        width: 1em;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--blue);
+        outline: 1px solid var(--blue);
+    }
+}
+
+header,
+footer {
+    & article,
+    span,
+    section,
+    legend,
+    fieldset,
+    menu,
+    ol,
+    ul,
+    dialog,
+    form,
+    button,
+    textarea,
+    input {
+        display: flex;
+    }
+}
+header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--fill);
+
+    top: 0;
+    width: 100%;
+
+    > nav {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        background-color: transparent;
+
+        > a {
+            text-align: start;
+            width: 25%;
+            font-size: clamp(16px, 2.5vw, 18px);
+
+            > img,
+            svg {
+                width: 25%;
+            }
+        }
+
+        & a:hover {
+            text-decoration: underline;
+        }
+
+        & a.active {
+            color: var(--red);
+        }
+
+        & a.active:hover {
+            text-decoration: none;
+        }
+
+        > ul {
+            flex-flow: row wrap;
+            justify-content: end;
+            align-items: end;
+            width: 50%;
+            gap: 5%;
+
+            & a {
+                font-size: 18px;
+                text-align: end;
+            }
+        }
+    }
+}
+
+a {
+    font-family: "Victor Mono", sans-serif;
+    text-align: center;
+    text-decoration: none;
+
+    cursor: pointer;
+    color: var(--blue);
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    header {
+        > nav {
+            > a {
+                text-align: start;
+                width: 50%;
+            }
+
+            > a img {
+                width: 45%;
+            }
+        }
+    }
+}
+
+footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 0.5% 0;
+
+    text-align: center;
+    transform: translateY(10px);
+    transition: transform, opacity;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+
+    > article {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+
+        width: 90%;
+        background: transparent;
+        border-radius: 16px;
+        border: none;
+        padding: 0.5% 0;
+
+        > a {
+            width: 2.5%;
+
+            img {
+                width: 50%;
+            }
+        }
+
+        > ul {
+            gap: 1%;
+            width: 100%;
+        }
+
+        > ul li a {
+            color: var(--sec);
+            font-size: clamp(10px, 1vw, 12px);
+        }
+    }
+}
+
+.bg-white {
+    background-color: var(--fill);
+}
+
+.card {
+    border: 1px solid var(--blue);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+    min-width: 200px;
+    min-height: 200px;
+    position: relative;
+
+    h2,
+    span {
+        color: var(--blue);
+    }
+
+    p {
+        text-decoration: none;
+        text-align: start;
+    }
+
+    @media (max-width: 480px) {
+        padding: 10px;
+        margin: 10px;
+        width: 70vw;
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    svg {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+        background-color: inherit;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    text-decoration: none;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    overflow-x: hidden;
+}
+
+.error-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+    width: 100%;
+
+    > a {
+        text-decoration: none;
+        width: 90%;
+    }
+
+    > a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        > a {
+            width: 60%;
+        }
+    }
+}
+
+.card-list {
+    margin-top: 50px;
+    text-align: center;
+
+    & h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    & p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    & span {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+.card-grid {
+    --size: 300px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--size), 1fr));
+    gap: 20px;
+    margin-top: 50px;
+
+    > a {
+        border: 1px solid var(--blue);
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+        cursor: pointer;
+        min-width: 200px;
+        min-height: 200px;
+        position: relative;
+    }
+
+    > a:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* main, */
+/* header, */
+/* nav, */
+/* div, */
+
+a {
+    text-align: center;
+}
+
+menu,
+ol,
+ul {
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+menu,
+ul {
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+ol {
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
